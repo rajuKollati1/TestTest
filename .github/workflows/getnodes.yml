@@ -17,5 +17,5 @@ jobs:
       - name: Run 'kubectl get nodes'
         run: |
           echo "Running kubectl get nodes..."
-          export KUBECONFIG=/etc/kubernetes/admin.conf
+          #export KUBECONFIG=/etc/kubernetes/admin.conf
           kubectl get nodes -o wide
