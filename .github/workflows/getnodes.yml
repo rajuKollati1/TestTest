@@ -11,9 +11,6 @@ jobs:
       - name: Print current user
         run: whoami
 
-      - name: Check Kubernetes config
-        run: echo "KUBECONFIG is set to: $KUBECONFIG"
-
       - name: Run 'kubectl get nodes'
         run: |
           echo "Running kubectl get nodes..."
