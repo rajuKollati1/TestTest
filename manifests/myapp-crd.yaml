@@ -1,0 +1,29 @@
+# manifests/myapp-crd.yaml
+apiVersion: apiextensions.k8s.io/v1
+kind: CustomResourceDefinition
+metadata:
+  name: myapps.example.com
+spec:
+  group: example.com
+  versions:
+    - name: v1
+      served: true
+      storage: true
+      schema:
+        openAPIV3Schema:
+          type: object
+          properties:
+            spec:
+              type: object
+              properties:
+                replicas:
+                  type: integer
+                image:
+                  type: string
+  scope: Namespaced
+  names:
+    plural: myapps
+    singular: myapp
+    kind: MyApp
+    shortNames:
+    - ma
