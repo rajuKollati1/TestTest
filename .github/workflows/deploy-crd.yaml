@@ -1,12 +1,7 @@
-# deploy-crd.yaml
 name: Deploy CRD
 
 on:
-  push:
-    paths:
-      - 'manifests/**'
-      - '.github/workflows/**'
-  workflow_dispatch:  # allows manual trigger
+  workflow_dispatch:  # allows manual trigger only
 
 jobs:
   deploy:
