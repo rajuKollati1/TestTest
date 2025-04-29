@@ -19,10 +19,6 @@ jobs:
     - name: Update Helm repos
       run: helm repo update
 
-    - name: Create namespace (if not exists)
-      run: |
-        kubectl get ns monitoring || kubectl create ns monitoring
-
     - name: Install Prometheus with Helm
       run: |
         helm upgrade --install prometheus prometheus-community/prometheus \
