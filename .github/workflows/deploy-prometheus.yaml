@@ -1,25 +1,14 @@
-name: Deploy Prometheus with Helm
+name: Deploy Prometheus
 
 on:
-  push:
-    branches: [ main ]
-  workflow_dispatch:  # manually trigger from GitHub UI
+  workflow_dispatch:  # allows manual trigger only
 
 jobs:
   deploy:
-    runs-on: self-hosted  # your Windows self-hosted runner
-
+    runs-on: [self-hosted, windows]
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
+      - uses: actions/checkout@v3
+      - name: Helm Upgrade or Install Prometheus
+        run: |
+          helm upgrade --install prometheus prometheus-community/prometheus --namespace monitoring --set service.type=LoadBalancer
 
-    - name: Add Prometheus Helm repo
-      run: helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
-
-    - name: Update Helm repos
-      run: helm repo update
-
-    - name: Install Prometheus with Helm
-      run: |
-        helm upgrade --install prometheus prometheus-community/prometheus \
-          --namespace monitoring
