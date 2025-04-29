@@ -1,7 +1,6 @@
 name: Deploy Prometheus with Helm
 
 on:
-  on:
   push:
     branches: [ main ]
   workflow_dispatch:  # manually trigger from GitHub UI
