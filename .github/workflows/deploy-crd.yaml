@@ -1,0 +1,17 @@
+name: Deploy CRD to Kubernetes
+
+on:
+  push:
+    paths:
+      - 'manifests/myapp-crd.yaml'
+
+jobs:
+  deploy:
+    runs-on: [self-hosted, windows]
+
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v3
+
+    - name: Apply CRD YAML to Cluster
+      run: kubectl apply -f manifests/myapp-crd.yaml
