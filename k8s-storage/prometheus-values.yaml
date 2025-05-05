@@ -1,6 +1,29 @@
+# prometheus-values.yaml
+
+# Alertmanager configuration
+alertmanager:
+  persistentVolume:
+    enabled: true
+    existingClaim: smb-pvc  # Use the pre-existing PVC for Alertmanager
+
+# Prometheus server configuration
 server:
   persistentVolume:
     enabled: true
-    existingClaim: smb-pvc
-  service:
-    type: LoadBalancer
+    existingClaim: smb-pvc  # Use the pre-existing PVC for Prometheus server
+
+# Optional: If you want to use different PVCs for server and alertmanager
+# server:
+#   persistentVolume:
+#     enabled: true
+#     existingClaim: smb-pvc-server
+# alertmanager:
+#   persistentVolume:
+#     enabled: true
+#     existingClaim: smb-pvc-alert
+
+# Pushgateway (optional, if you're using it)
+pushgateway:
+  persistentVolume:
+    enabled: true
+    existingClaim: smb-pvc  # Use the pre-existing PVC for Pushgateway
