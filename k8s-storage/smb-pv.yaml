@@ -5,16 +5,17 @@ metadata:
 spec:
   capacity:
     storage: 10Gi
-  volumeMode: Filesystem
   accessModes:
     - ReadWriteMany
   persistentVolumeReclaimPolicy: Retain
   storageClassName: smb-storage
-  mountOptions:
-    - vers=3.0
   csi:
     driver: smb.csi.k8s.io
     volumeHandle: smb-pv-handle
+    readOnly: false
     volumeAttributes:
       source: "//192.168.0.171/k8s-share"
-      mountOptions: "username=es,password=Ra!u@988588,uid=1000,gid=1000"
+    nodeStageSecretRef:
+      name: smbcreds
+      namespace: default
+
