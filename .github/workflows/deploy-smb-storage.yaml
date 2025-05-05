@@ -5,16 +5,11 @@ on:
 
 jobs:
   deploy:
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, windows] 
 
     steps:
     - name: Checkout repo
       uses: actions/checkout@v3
-
-    - name: Set up kubectl
-      uses: azure/setup-kubectl@v3
-      with:
-        version: 'latest'
 
     - name: Apply StorageClass
       run: kubectl apply -f k8s-storage/smb-storageclass.yaml 
