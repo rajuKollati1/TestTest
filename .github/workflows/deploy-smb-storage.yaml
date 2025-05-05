@@ -17,7 +17,7 @@ jobs:
         version: 'latest'
 
     - name: Apply StorageClass
-      run: kubectl apply -f k8s-storage/smb-storageclass.yaml
+      run: kubectl apply -f k8s-storage/smb-storageclass.yaml --validate=false
 
     - name: Apply Persistent Volume
       run: kubectl apply -f k8s-storage//smb-pv.yaml
