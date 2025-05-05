@@ -17,4 +17,4 @@ spec:
     volumeHandle: smb-pv-handle
     volumeAttributes:
       source: "//192.168.0.171/k8s-share"
-      mountOptions: "username=raju,password=Ra!u@988588,uid=1000,gid=1000"
+      mountOptions: "username=es,password=Ra!u@988588,uid=1000,gid=1000"
