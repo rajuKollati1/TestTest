@@ -16,13 +16,6 @@ jobs:
       with:
         version: 'latest'
 
-    - name: Use existing kubeconfig (pre-installed in runner)
-      run: |
-        mkdir -p $HOME/.kube
-        echo "${{ secrets.KUBECONFIG_CONTENT }}" > $HOME/.kube/config
-        chmod 600 $HOME/.kube/config
-        kubectl config get-contexts
-
     - name: Apply StorageClass
       run: kubectl apply -f k8s-storage/smb-storageclass.yaml
 
