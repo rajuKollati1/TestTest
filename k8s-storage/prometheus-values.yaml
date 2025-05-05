@@ -1,0 +1,6 @@
+server:
+  persistentVolume:
+    enabled: true
+    existingClaim: smb-pvc
+  service:
+    type: LoadBalancer
