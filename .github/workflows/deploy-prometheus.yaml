@@ -1,14 +1,24 @@
 name: Deploy Prometheus
 
 on:
-  workflow_dispatch:  # allows manual trigger only
+  workflow_dispatch:
 
 jobs:
   deploy:
     runs-on: [self-hosted, windows]
-    steps:
-      - uses: actions/checkout@v3
-      - name: Helm Upgrade or Install Prometheus
-        run: |
-          helm upgrade --install prometheus prometheus-community/prometheus --namespace monitoring --set service.type=LoadBalancer --set server.persistentVolume.enabled=false
 
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Add Helm repo
+        run: |
+          helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+          helm repo update
+
+      - name: Deploy Prometheus using SMB PVC
+        run: |
+          helm upgrade --install prometheus prometheus-community/prometheus `
+            --namespace monitoring `
+            --create-namespace `
+            -f k8s/prometheus-values.yaml
