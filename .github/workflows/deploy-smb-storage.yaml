@@ -1,0 +1,36 @@
+name: Deploy SMB PVC to Kubernetes
+
+on:
+  workflow_dispatch:  # Allows manual triggering
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v3
+
+    - name: Set up kubectl
+      uses: azure/setup-kubectl@v3
+      with:
+        version: 'latest'
+
+    - name: Use existing kubeconfig (pre-installed in runner)
+      run: |
+        mkdir -p $HOME/.kube
+        echo "${{ secrets.KUBECONFIG_CONTENT }}" > $HOME/.kube/config
+        chmod 600 $HOME/.kube/config
+        kubectl config get-contexts
+
+    - name: Apply StorageClass
+      run: kubectl apply -f k8s/smb-storageclass.yaml
+
+    - name: Apply Persistent Volume
+      run: kubectl apply -f k8s/smb-pv.yaml
+
+    - name: Apply PVC
+      run: kubectl apply -f k8s/smb-pvc.yaml
+
+    - name: Deploy Pod using PVC
+      run: kubectl apply -f k8s/pod-with-pvc.yaml
