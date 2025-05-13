@@ -9,34 +9,21 @@ on:
 
 jobs:
   deploy-prometheus:
-    name: FluxCD Sync & Validate
+    name: FluxCD Reconcile Prometheus
     runs-on: [self-hosted, windows]
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Install Flux CLI
-        run: |
-          choco install flux -y
+      - name: Reconcile Git source
+        run: flux reconcile source git flux-system --with-source
         shell: powershell
 
-      - name: Confirm Flux version
-        run: flux --version
+      - name: Reconcile HelmRelease
+        run: flux reconcile helmrelease prometheus -n monitoring --with-source
         shell: powershell
 
-      - name: Bootstrap cluster if needed
-        run: |
-          flux check --pre
-        shell: powershell
-        continue-on-error: true
-
-      - name: Force Flux reconcile
-        run: |
-          flux reconcile source git flux-system --with-source
-        shell: powershell
-
-      - name: Confirm Prometheus release
-        run: |
-          flux get helmreleases -n monitoring
+      - name: Confirm Prometheus Release
+        run: flux get helmreleases -n monitoring
         shell: powershell
