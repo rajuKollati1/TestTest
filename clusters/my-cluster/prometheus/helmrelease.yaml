@@ -2,23 +2,30 @@ apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
   name: prometheus
-  namespace: monitoring  # Or change if needed
+  namespace: monitoring
 spec:
-  interval: 1m
-  releaseName: prometheus
   chart:
     spec:
       chart: prometheus
-      version: "25.9.0"  # Optional: lock version
       sourceRef:
         kind: HelmRepository
         name: prometheus-community
         namespace: flux-system
+      version: 25.21.0  # example version
+  interval: 1m
   values:
     alertmanager:
-      enabled: true
-    pushgateway:
-      enabled: true
+      persistentVolume:
+        enabled: true
+        storageClass: smb-storage
+        size: 2Gi
+
     server:
-      service:
-        type: NodePort
+      persistentVolume:
+        enabled: true
+        storageClass: smb-storage
+        size: 8Gi
+
+    pushgateway:
+      persistentVolume:
+        enabled: false  # or true if needed
