@@ -1,4 +1,4 @@
-#  Mimir Distributed Pods — Baby-Level Explanation
+
 
 ## What is Mimir?
 
