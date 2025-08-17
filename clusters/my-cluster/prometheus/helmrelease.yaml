@@ -4,29 +4,25 @@ metadata:
   name: prometheus
   namespace: monitoring
 spec:
-  interval: 1m
+  interval: 5m
   chart:
     spec:
       chart: prometheus
-      version: 25.21.0
+      version: "25.8.*"   # pick a stable version
       sourceRef:
         kind: HelmRepository
         name: prometheus-community
         namespace: flux-system
+  install:
+    createNamespace: true
   values:
     alertmanager:
-      enabled: true
       persistentVolume:
         enabled: true
-        storageClass: smb-storage
+        storageClass: ""   # "" = use default StorageClass
         size: 2Gi
-
     server:
-      enabled: true
       persistentVolume:
         enabled: true
-        storageClass: smb-storage
-        size: 8Gi
-
-    pushgateway:
-      enabled: false
+        storageClass: ""   # "" = use default StorageClass
+        size: 5Gi
