@@ -1,28 +1,34 @@
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
-  name: prometheus
-  namespace: monitoring
+  name: kube-prometheus-stack
+  namespace: flux-system
 spec:
-  interval: 5m
+  releaseName: kube-prometheus-stack
+  interval: 1m
   chart:
     spec:
-      chart: prometheus
-      version: "25.8.*"   # pick a stable version
+      chart: kube-prometheus-stack
+      version: "65.x.x" # pick a stable version
       sourceRef:
         kind: HelmRepository
         name: prometheus-community
         namespace: flux-system
+  targetNamespace: monitoring
   install:
     createNamespace: true
   values:
-    alertmanager:
-      persistentVolume:
+    grafana:
+      adminPassword: admin
+      persistence:
         enabled: true
-        storageClass: ""   # "" = use default StorageClass
         size: 2Gi
-    server:
-      persistentVolume:
-        enabled: true
-        storageClass: ""   # "" = use default StorageClass
-        size: 5Gi
+    prometheus:
+      prometheusSpec:
+        storageSpec:
+          volumeClaimTemplate:
+            spec:
+              accessModes: ["ReadWriteOnce"]
+              resources:
+                requests:
+                  storage: 5Gi
