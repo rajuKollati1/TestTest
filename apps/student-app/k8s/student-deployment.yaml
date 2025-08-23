@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: student-app
-        image: your-dockerhub-username/student-app:1.0
+        image: rajuprudhvi/student-app:1.0
         ports:
         - containerPort: 80
 ---
