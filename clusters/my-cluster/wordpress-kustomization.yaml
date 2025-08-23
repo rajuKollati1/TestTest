@@ -1,0 +1,24 @@
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: wordpress-app
+  namespace: flux-system
+spec:
+  interval: 5m
+  sourceRef:
+    kind: GitRepository
+    name: flux-system        # created by flux bootstrap
+  path: ./apps/wordpress
+  targetNamespace: default
+  prune: true
+  wait: true
+  timeout: 5m
+  healthChecks:
+    - apiVersion: apps/v1
+      kind: StatefulSet
+      name: mysql
+      namespace: default
+    - apiVersion: apps/v1
+      kind: StatefulSet
+      name: wordpress
+      namespace: default
