@@ -1,0 +1,4 @@
+resources:
+  - wordpress-secret.yaml
+  - mysql-statefulset.yaml
+  - wordpress-statefulset.yaml
