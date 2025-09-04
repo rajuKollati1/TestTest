@@ -1,33 +1,35 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: student-app
+  name: nginx-deployment
+  labels:
+    app: nginx
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: student-app
+      app: nginx
   template:
     metadata:
       labels:
-        app: student-app
+        app: nginx
     spec:
       containers:
-      - name: student-app
-        image: rajuprudhvi/student-app:1.0
+      - name: nginx
+        image: nginx:latest
         ports:
         - containerPort: 80
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: student-service
+  name: nginx-service
 spec:
-  type: NodePort
+  type: NodePort   # change to LoadBalancer if you’re on cloud (GKE/AKS/EKS)
   selector:
-    app: student-app
+    app: nginx
   ports:
     - protocol: TCP
       port: 80
       targetPort: 80
-      nodePort: 30001
+      nodePort: 30080   # external port on the node
