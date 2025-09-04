@@ -1,0 +1,62 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: node-hello-deployment
+  labels:
+    app: node-hello
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: node-hello
+  template:
+    metadata:
+      labels:
+        app: node-hello
+    spec:
+      containers:
+      - name: node-hello
+        image: node:14
+        command: ["node", "server.js"]
+        ports:
+        - containerPort: 3000
+        volumeMounts:
+        - name: app-code
+          mountPath: /usr/src/app
+        workingDir: /usr/src/app
+      volumes:
+      - name: app-code
+        configMap:
+          name: node-hello-config
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: node-hello-config
+data:
+  server.js: |
+    const express = require('express');
+    const app = express();
+    const port = 3000;
+
+    app.get('/', (req, res) => {
+      res.send('Hello from Node.js App running in Kubernetes!');
+    });
+
+    app.listen(port, () => {
+      console.log(`App running on http://0.0.0.0:${port}`);
+    });
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: node-hello-service
+spec:
+  type: NodePort
+  selector:
+    app: node-hello
+  ports:
+    - protocol: TCP
+      port: 3000
+      targetPort: 3000
+      nodePort: 30082
