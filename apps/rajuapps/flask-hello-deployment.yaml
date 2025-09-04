@@ -1,0 +1,61 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flask-hello-deployment
+  labels:
+    app: flask-hello
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: flask-hello
+  template:
+    metadata:
+      labels:
+        app: flask-hello
+    spec:
+      containers:
+      - name: flask-hello
+        image: tiangolo/uwsgi-nginx-flask:python3.8
+        ports:
+        - containerPort: 80
+        env:
+        - name: FLASK_APP
+          value: "app.py"
+        - name: FLASK_RUN_HOST
+          value: "0.0.0.0"
+        volumeMounts:
+        - name: app-code
+          mountPath: /app
+      volumes:
+      - name: app-code
+        configMap:
+          name: flask-hello-config
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: flask-hello-config
+data:
+  app.py: |
+    from flask import Flask
+    app = Flask(__name__)
+
+    @app.route("/")
+    def hello():
+        return "Hello from Flask App running in Kubernetes!"
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: flask-hello-service
+spec:
+  type: NodePort
+  selector:
+    app: flask-hello
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+      nodePort: 30081
