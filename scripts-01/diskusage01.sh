@@ -2,11 +2,11 @@
 set -euo pipefail
 
 # 🔐 Hardcoded credentials (edit these)
-NODE="10.0.0.15"
-USER="ubuntu"
-SSHPASS="your_ssh_password_here"
-SUDOPASS="your_sudo_password_here"
-THRESHOLD=80   # change threshold %
+NODE="192.168.0.35"
+USER="raju"
+SSHPASS="VMware1!"
+SUDOPASS="VMware1!"
+THRESHOLD=50   # change threshold %
 
 # Check disk usage on remote node
 echo "Checking disk usage on $NODE..."
