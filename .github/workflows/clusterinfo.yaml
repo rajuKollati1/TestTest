@@ -5,10 +5,10 @@ on:
 
 jobs:
   test-k8s:
-    runs-on: runs-on: [self-hosted, windows]
+    runs-on: [self-hosted, windows]   # 👈 fixed
 
     steps:
-      # Set up kubeconfig from GitHub Secret
+      # Set up kubeconfig from GitHub Secret (only needed if you want to use GitHub Secrets)
       - name: Set up Kubeconfig
         run: |
           mkdir -p $HOME/.kube
