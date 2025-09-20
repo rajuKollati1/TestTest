@@ -1,0 +1,27 @@
+name: CI/CD Kubernetes Info
+ 
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+ 
+jobs:
+  kubernetes-info:
+    runs-on: self-hosted  # IMPORTANT: your self-hosted runner in the same network
+ 
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+ 
+      - name: Verify kubectl version
+        run: kubectl version --short
+ 
+      - name: Get cluster info
+        run: kubectl cluster-info
+ 
+      - name: Get node info
+        run: kubectl get nodes -o wide
+ 
+      - name: Get pods info (optional)
+        run: kubectl get pods -A -o wide
