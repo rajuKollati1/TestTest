@@ -1,7 +1,7 @@
 name: Test K8s Cluster Config
 
 on:
-  workflow_dispatch:   # manual trigger from GitHub Actions tab 
+  workflow_dispatch:   # manual trigger from GitHub Actions tab  
 
 jobs:
   test-k8s:
