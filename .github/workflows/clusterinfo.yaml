@@ -1,0 +1,22 @@
+name: Test K8s Cluster Config
+
+on:
+  workflow_dispatch:  # run manually from GitHub Actions tab
+
+jobs:
+  test-k8s:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Set up kubeconfig from GitHub Secret
+      - name: Set up Kubeconfig
+        run: |
+          mkdir -p $HOME/.kube
+          echo "${{ secrets.KUBECONFIG_DATA }}" > $HOME/.kube/config
+
+      # Test cluster connectivity
+      - name: Verify cluster connection
+        run: |
+          kubectl cluster-info
+          kubectl get nodes
+          kubectl get pods -A
