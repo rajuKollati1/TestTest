@@ -11,4 +11,4 @@ jobs:
       - name: Verify cluster connection
         run: |
           kubectl cluster-info
-          kubectl get svc -A
+         
