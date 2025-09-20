@@ -1,20 +1,13 @@
 name: Test K8s Cluster Config
 
 on:
-  workflow_dispatch:  # run manually from GitHub Actions tab
+  workflow_dispatch:   # manual trigger from GitHub Actions tab
 
 jobs:
   test-k8s:
-    runs-on: [self-hosted, windows]   # 👈 fixed
+    runs-on: [self-hosted, windows]   # 👈 uses your Windows VM runner
 
     steps:
-      # Set up kubeconfig from GitHub Secret (only needed if you want to use GitHub Secrets)
-      - name: Set up Kubeconfig
-        run: |
-          mkdir -p $HOME/.kube
-          echo "${{ secrets.KUBECONFIG_DATA }}" > $HOME/.kube/config
-
-      # Test cluster connectivity
       - name: Verify cluster connection
         run: |
           kubectl cluster-info
