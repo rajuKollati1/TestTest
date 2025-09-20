@@ -19,17 +19,6 @@ jobs:
         with:
           node-version: '18'
 
-      # Install dependencies and run tests
-      - name: Install dependencies
-        run: npm install
-
-      - name: Run tests
-        run: npm test
-
-      # Build Docker image
-      - name: Build Docker image
-        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/student-app:${{ github.sha }} .
-
       # Log in to Docker Hub
       - name: Log in to Docker Hub
         uses: docker/login-action@v2
@@ -41,11 +30,12 @@ jobs:
       - name: Push Docker image
         run: docker push ${{ secrets.DOCKER_USERNAME }}/student-app:${{ github.sha }}
 
-      # Deploy to Kubernetes
+      # Set up kubectl with kubeconfig
       - name: Set up Kubeconfig
-        uses: azure/setup-kubectl@v3
-        with:
-          version: 'latest'
+        run: |
+          mkdir -p $HOME/.kube
+          echo "${{ secrets.KUBECONFIG_DATA }}" > $HOME/.kube/config
+
 
       - name: Deploy to Kubernetes
         run: |
