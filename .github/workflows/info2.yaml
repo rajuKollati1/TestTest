@@ -1,0 +1,15 @@
+name: Test K8s Cluster Config
+
+on:
+  workflow_dispatch:   # manual trigger from GitHub Actions tab
+
+jobs:
+  test-k8s:
+    runs-on: [self-hosted, windows]   # 👈 uses your Windows VM runner
+
+    steps:
+      - name: Verify cluster connection
+        run: |
+          kubectl cluster-info
+          kubectl get nodes
+          kubectl get pods -A
