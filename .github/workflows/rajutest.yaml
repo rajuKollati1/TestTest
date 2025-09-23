@@ -1,0 +1,18 @@
+name: Deploy StudentApp Only
+
+on:
+  workflow_dispatch:   # run manually
+  push:
+    branches: ["main"]
+
+jobs:
+  deploy:
+    runs-on: self-hosted   # your laptop runner
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Deploy to Kubernetes
+        run: |
+          kubectl apply -f k8s/studentapp-deployment.yaml
+          kubectl rollout status deployment/studentapp-deployment
