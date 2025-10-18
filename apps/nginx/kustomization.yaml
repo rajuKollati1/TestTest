@@ -5,7 +5,7 @@ metadata:
   namespace: flux-system       # Flux controllers always look in flux-system
 spec:
   interval: 1m0s
-  path: apps/nginx           # Path relative to the Git repo root
+  path: ./apps/nginx           # Path relative to the Git repo root
   prune: true
   sourceRef:
     kind: GitRepository
