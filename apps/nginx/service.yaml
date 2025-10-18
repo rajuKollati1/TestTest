@@ -9,5 +9,5 @@ spec:
   ports:
     - protocol: TCP
       port: 80           # service port
-      targetPort: 80     # container port
+      targetPort: 443    # container port
   type: ClusterIP      # can also use NodePort or LoadBalancer
