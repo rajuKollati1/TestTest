@@ -5,7 +5,7 @@ metadata:
   namespace: flux-system        # Flux controllers always watch flux-system
 spec:
   interval: 1m0s
-  path: apps/nginx/deployment.yaml           # Path to your app folder in the repo
+  path: ./apps/nginx/deployment.yaml           # Path to your app folder in the repo
   prune: true
   sourceRef:
     kind: GitRepository
