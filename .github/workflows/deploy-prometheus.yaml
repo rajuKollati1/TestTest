@@ -4,8 +4,8 @@ on:
   push:
     paths:
       - 'clusters/production/prometheus-helm*'
-    branches:
-      - main
+    #branches:
+     # - main
   workflow_dispatch:  # ✅ This enables the "Run workflow" button
 
 jobs:
