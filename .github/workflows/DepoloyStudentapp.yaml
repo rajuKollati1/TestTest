@@ -2,7 +2,7 @@ name: student application for test without docker workflow
 on:
   workflow_dispatch:   # manual trigger
  # push:
-   # branches: ["main"]
+ #   branches: ["main"]
 
 jobs:
   deploy:
