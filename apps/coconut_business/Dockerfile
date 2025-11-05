@@ -10,7 +10,7 @@ RUN rm /usr/share/nginx/html/index.html
 # Copy your custom HTML page into the Nginx web root
 # NOTE: The source file name is assumed to be 'coconut.html' 
 # and it is renamed to 'index.html' which Nginx serves by default.
-COPY apps/coconut/coconut.html /usr/share/nginx/html/index.html
+COPY apps/coconut_business/coconut.html /usr/share/nginx/html/index.html
 
 # Expose port 80 (default HTTP port for Nginx)
 EXPOSE 80
