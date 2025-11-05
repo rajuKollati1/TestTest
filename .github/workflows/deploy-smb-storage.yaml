@@ -1,0 +1,24 @@
+name: Deploy SMB PVC to Kubernetes
+
+on:
+  workflow_dispatch:  # Allows manual triggering
+
+jobs:
+  deploy:
+    runs-on: [self-hosted, windows] 
+
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v3
+
+    - name: Apply StorageClass
+      run: kubectl apply -f k8s-storage/smb-storageclass.yaml 
+
+    - name: Apply Persistent Volume
+      run: kubectl apply -f k8s-storage//smb-pv.yaml
+
+    - name: Apply PVC
+      run: kubectl apply -f k8s-storage//smb-pvc.yaml
+
+    - name: Deploy Pod using PVC
+      run: kubectl apply -f k8s-storage//pod-with-pvc.yaml

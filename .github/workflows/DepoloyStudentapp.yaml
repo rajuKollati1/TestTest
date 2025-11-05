@@ -1,0 +1,19 @@
+name: student application for test without docker workflow
+on:
+  workflow_dispatch:   # manual trigger
+  push:
+    branches: ["main"]
+
+jobs:
+  deploy:
+    runs-on: self-hosted   # windoes laptop runner this one 
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Deploy StudentApp to Kubernetes
+        run: |
+          kubectl apply -f apps/student-app/k8s/student-deployment.yaml
+      - name: Validate my deployemnts 
+        run: |
+          kubectl get deployment student-app 

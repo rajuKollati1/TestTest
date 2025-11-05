@@ -1,0 +1,19 @@
+name: K8s Info Check
+
+on:
+  workflow_dispatch:   # run manually from Actions tab
+
+jobs:
+  k8s-info:
+    runs-on: [self-hosted, windows]   # your self-hosted runner label
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Verify cluster connection
+        run: |
+          kubectl cluster-info
+          kubectl get nodes -o wide
+          kubectl get pods -A -o wide
+          kubectl get svc -A

@@ -1,0 +1,380 @@
+[33m099ada7[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m Rename furniture.html to index.html
+[33mcaf90ce[m Update and rename hashiapp.yaml to furniture.html
+[33m2f7756a[m Delete .github/workflows/build-and-push.yml
+[33m25a28fd[m Create build-and-push.yml
+[33m4a3f670[m Update info2.yaml
+[33m8fb6785[m Update info2.yaml
+[33m3e88af4[m  deployemnt added here
+[33m9203fcd[m Update Dockerfile
+[33m01b0f11[m Update bulid-push-docker.yaml
+[33m5a4804e[m Change copied HTML file to index.html
+[33m2baf80d[m Rename furniture.html to index.html
+[33mcef74f9[m Update Dockerfile
+[33m98f1431[m Update bulid-push-docker.yaml
+[33m1aa3b58[m Create Dockerfile
+[33mfb90237[m Update and rename hashiapp.yaml to furniture.html
+[33mb50556d[m Update bulid-push-docker.yaml
+[33mfd9e7b5[m Update bulid-push-docker.yaml
+[33m828e788[m Create bulid-push-docker.yaml
+[33m52249ef[m Delete .github/workflows/build-and-push.yml
+[33mb49630c[m Create build-and-push.yml
+[33m3487274[m Create index.html
+[33m73ef243[m Create Dockerfile
+[33mccf1aa9[m Add docker-image.md documentation file
+[33ma9846a5[m Add deploy-crd.md documentation file
+[33m158ccda[m Update DepoloyStudentapp.yaml
+[33m909531c[m Update info2.yaml
+[33m4c99905[m Update info2.yaml
+[33m8913431[m pvc_data_chages
+[33m4aa3c3f[m i would like to add all statefull pvc and deployment pvcs
+[33m766471c[m host path volume added
+[33ma0788c9[m bootstrap
+[33m09d3c82[m Create flux-bootstrap.sh
+[33m7231685[m Add Flux sync manifests
+[33m79e0e14[m Add Flux v2.6.4 component manifests
+[33m3ccb8a2[m Adding empty dir to test volumes
+[33m0b6908b[m i want to delete some files and folders
+[33mf9d04b2[m Update deployment.yaml
+[33m8d88f4f[m Update deployment.yaml
+[33m786e91d[m Update school-kustomization.yaml
+[33m7f33b31[m Update service.yaml
+[33m8ce2a84[m Update deployment.yaml
+[33mb6f594c[m Create school-kustomization.yaml
+[33md594b0a[m Create kustomization.yaml
+[33m5fbf3dc[m Create service.yaml
+[33m20e81a3[m Create deployment.yaml
+[33m631ff84[m Update nginx-kustomization.yaml
+[33m63263df[m Update kustomization.yaml
+[33m4219db9[m Update deployment.yaml
+[33m1c102f9[m Update deployment.yaml
+[33m799f810[m Update service.yaml
+[33ma1836a0[m Update service.yaml
+[33mc153442[m Update deployment.yaml
+[33mbdc13cd[m Update service.yaml
+[33m97a0ccc[m Create kustomization.yaml
+[33me76e32c[m Create service.yaml
+[33m4982f6f[m Update deployment.yaml
+[33m73fb879[m Update nginx-kustomization.yaml
+[33mf4cafbe[m Delete apps/nginx/service.yaml
+[33mdbff99a[m Delete apps/nginx/kustomization.yaml
+[33m2b9cfa6[m Update nginx-kustomization.yaml
+[33m144f02c[m Update kustomization.yaml
+[33m2cd2e6c[m Create kustomization.yaml
+[33m76d9f36[m Create service.yaml
+[33m7f12856[m Update deployment.yaml
+[33m28ad7f2[m Update deployment.yaml
+[33m7e85071[m Update deployment.yaml
+[33m380f80a[m Create nginx-kustomization.yaml
+[33mc5efd6f[m Delete clusters/my-lab/flux-system/nginx-kustomization.yaml
+[33m07b420b[m Update nginx-kustomization.yaml
+[33m4465320[m Update nginx-kustomization.yaml
+[33mcb8e775[m Delete apps/nginx/service.yaml
+[33m2c57b15[m Update kustomization.yaml
+[33m42f3fce[m Update kustomization.yaml
+[33m624f131[m Delete apps/nginx/kustomization.yaml
+[33m81e7477[m Create nginx-kustomization.yaml
+[33m1587940[m Update kustomization.yaml
+[33maf0fdd9[m Update kustomization.yaml
+[33m885dad9[m Create kustomization.yaml
+[33m5f675d4[m Create service.yaml
+[33mc381793[m Create deployment.yaml
+[33mcdbe684[m Update student-deployment.yaml
+[33m3541c3d[m Add Flux sync manifests
+[33md161bca[m Add Flux v2.6.4 component manifests
+[33mdb63a3d[m Add Flux v2.6.4 component manifests
+[33ma35f351[m Delete clusters directory
+[33mff7adfa[m Create k8s 3.10.md
+[33m29c10fc[m docker-publish.yml
+[33m9d9794e[m clusterinfo.yaml
+[33mccc8e91[m /myfile.yaml
+[33m8b429be[m test009
+[33m77f0cb7[m td
+[33m781864b[m tt
+[33m326403d[m Delete .github/workflows/mm directory
+[33mb3fbc54[m Delete .github/workflows/suresh directory
+[33m8338a08[m Update DepoloyStudentapp.yaml
+[33m02c9cfd[m Update index.html
+[33md130bd6[m Update Dockerfile
+[33m9de7b15[m Update bussi-deployment.yaml
+[33m54b12c7[m Create index.html
+[33m97626f6[m Create Dockerfile
+[33m81ec88f[m Create bussi-deployment.yaml
+[33m8f7f733[m Delete mahesh/pod22.yaml
+[33m4dcfa91[m Delete apps/mahiapp directory
+[33ma450bcb[m Delete apps/subbuapp directory
+[33m50999a5[m Delete apps/suriapp directory
+[33mf337b89[m Delete apps/tanuapp directory
+[33m97cc0b3[m Update empworkflow.yaml
+[33mee35d25[m Update empworkflow.yaml
+[33m0755d1e[m Create empworkflow.yaml
+[33m879f8cd[m Update emp_deployment.yaml
+[33mc84428b[m Create index.html
+[33m9b25500[m Create Dockerfile
+[33m28ace70[m Create emp_deployment.yaml
+[33mc646bff[m Update DepoloyStudentapp.yaml
+[33me433c8b[m Rename rajutest.yaml to DepoloyStudentapp.yaml
+[33m0a2a49a[m Update rajutest.yaml
+[33md00655d[m Update rajutest.yaml
+[33mefcdaf8[m Update rajutest.yaml
+[33meadbfec[m Create rajutest.yaml
+[33m280d449[m Create prune_images001.sh
+[33md8b4cd9[m Update prune_images.sh
+[33ma6efa38[m Update prune_images.sh
+[33mf0f8a9c[m Create prune_images.sh
+[33mdfe616a[m Create k8sinfo.yaml
+[33m0a677dc[m Create info2.yaml
+[33m12bb97a[m Create test10.yaml
+[33mcb19f22[m Delete .github/workflows/tr directory
+[33mce48701[m Delete .github/workflows/ts directory
+[33m08d4f6d[m Update test.yaml
+[33mb94b4d6[m Update app.yaml
+[33mc4abce2[m Create ci-cd.yml
+[33m0667b2e[m Create docker-publish.yml
+[33mdfc1ee5[m Update ci-cd.yml
+[33mebe92d9[m Create docker-image.yml
+[33m5ed8256[m Update app.yaml
+[33mdd8decd[m Create app.yaml
+[33ma03ca55[m Update ci-cd.yml
+[33m25aebf1[m Update deployment.yaml
+[33mcd6682b[m Update myfile.yaml
+[33md6db205[m Create test.yaml
+[33md151d5e[m Create td
+[33m89d1191[m Create tt
+[33mbb58db8[m Create ci-cd.yml
+[33mce7238f[m Create Dockerfile
+[33md64b93f[m Create deployment.yaml
+[33m2231b19[m Create service.yaml
+[33m03e6548[m Create test009
+[33m90d98d5[m Create myfile.yaml
+[33mc5340c8[m Update clusterinfo.yaml
+[33m999e7f2[m Update clusterinfo.yaml
+[33md98b673[m Update clusterinfo.yaml
+[33mcdc4892[m Delete .github/workflows/student.yaml
+[33me36da42[m Create clusterinfo.yaml
+[33m40418f7[m Update student.yaml
+[33maa41263[m Create student.yaml
+[33me43802c[m Update diskusage01.sh
+[33m18a7142[m Create diskusage01.sh
+[33mb6115eb[m Create diskusage.sh
+[33m6018e87[m Update kustomization.yaml
+[33mffb4ab7[m Update kustomization.yaml
+[33m6483010[m Merge pull request #26 from rajuKollati1/scripts
+[33me46d75a[m[33m ([m[1;31morigin/scripts[m[33m)[m script modified
+[33mae6dc76[m Merge pull request #25 from rajuKollati1/tanmay
+[33m364f57b[m[33m ([m[1;31morigin/tanmay[m[33m)[m creating file in git
+[33m25db51b[m Merge pull request #24 from rajuKollati1/mahesh
+[33m91af019[m[33m ([m[1;31morigin/mahesh[m[33m)[m to move file in git
+[33medd5b8c[m Merge pull request #23 from rajuKollati1/sureshbabu
+[33m2fe7ac4[m[33m ([m[1;31morigin/sureshbabu[m[33m)[m attach file
+[33m021a211[m Merge pull request #22 from rajuKollati1/subbaro
+[33m099b43b[m[33m ([m[1;31morigin/subbaro[m[33m)[m adding file in git
+[33m1278f82[m Merge pull request #21 from rajuKollati1/raju
+[33me35152c[m[33m ([m[1;31morigin/raju[m[33m)[m new file is added in rajuapp
+[33mfc7f746[m Merge pull request #20 from rajuKollati1/sureshone
+[33m3562440[m kingjdn
+[33m1f4bf80[m Merge pull request #19 from rajuKollati1/prudhiv
+[33m42c50c8[m Create hashiapp.yaml
+[33mb330d6d[m Merge pull request #18 from rajuKollati1/prudhiv
+[33ma6e374f[m md files addes
+[33m918f0b0[m Merge pull request #17 from rajuKollati1/newapps
+[33m45e317b[m new applicatons moving to newapps branch
+[33m587e446[m image name added
+[33m2906469[m publish
+[33m2f1b769[m Create student-deployment.yaml
+[33md7d05c3[m Create Dockerfile
+[33m9ee0a6b[m Create index.html
+[33m517ddd2[m Update mysql-statefulset.yaml
+[33m7c2017d[m Update wordpress-statefulset.yaml
+[33m1a15c66[m Update kustomization.yaml
+[33m89c1001[m Rename clusters/my-cluster/kustomization.yaml to clusters/my-cluster/flux-system/kustomization.yaml
+[33ma437e9d[m Rename clusters/my-cluster/gotk-sync.yaml to clusters/my-cluster/flux-system/gotk-sync.yaml
+[33m362623a[m Rename clusters/my-cluster/gotk-components.yaml to clusters/my-cluster/flux-system/gotk-components.yaml
+[33mba83327[m Delete apps/wordpress/flux-system
+[33m21bc628[m Create flux-system
+[33ma3ba2cf[m Update kustomization.yaml
+[33m99b05d4[m Update kustomization.yaml
+[33md69d06f[m Delete clusters/my-cluster/nginx directory
+[33md17a3a7[m Delete clusters/my-cluster/flux-system directory
+[33m80d4037[m Rename clusters/my-cluster/flux-system/gotk-sync.yaml to clusters/my-cluster/gotk-sync.yaml
+[33md93d28d[m Rename clusters/my-cluster/flux-system/kustomization.yaml to clusters/my-cluster/kustomization.yaml
+[33m6ad651e[m Rename clusters/my-cluster/flux-system/gotk-components.yaml to clusters/my-cluster/gotk-components.yaml
+[33m8a88eec[m Update wordpress-statefulset.yaml
+[33meb2bd02[m Create wordpress-statefulset.yaml
+[33md65b55b[m Create mysql-statefulset.yaml
+[33ma8fb261[m Create wordpress-secret.yaml
+[33m7e3b6ec[m Create kustomization.yaml
+[33mb7364da[m Create wordpress-kustomization.yaml
+[33m109f0ed[m Delete clusters/my-cluster/prometheus directory
+[33m8eb308d[m Delete clusters/my-cluster/flux-system/prometheus-kustomization.yaml
+[33m771e4cc[m Merge pull request #16 from rajuKollati1/kollatiking
+[33maeb0278[m Merge branch 'main' into kollatiking
+[33mdc78729[m only one replica
+[33m5fa6532[m Update deployment.yaml
+[33mc4ef42f[m Update deployment.yaml
+[33m27c7e25[m Update deployment.yaml
+[33m0eebb7c[m Update deployment.yaml
+[33ma5530b5[m Update prometheus-kustomization.yaml
+[33m00b2570[m Update helmrelease.yaml
+[33m4361b43[m Update deployment.yaml
+[33ma8902ff[m Update kustomization.yaml
+[33mb3489be[m Update prometheus-kustomization.yaml
+[33md9425cf[m Delete clusters/my-cluster/nginx/king.md
+[33m0075032[m Delete clusters/my-cluster/kustomization.yaml
+[33m6aac3ec[m Update helmrepository.yaml
+[33m7405f74[m Update helmrelease.yaml
+[33mc230c9a[m Update deployment.yaml
+[33mf9d7281[m Merge pull request #15 from rajuKollati1/replica-2
+[33m29ea8cc[m Merge branch 'main' into replica-2
+[33m0f746a2[m five added sir
+[33ma126897[m Merge pull request #12 from rajuKollati1/nginx_replica_2
+[33m5cc0849[m modify replica count to 2
+[33m641c36c[m Update deployment.yaml
+[33md25a239[m Add Flux sync manifests
+[33m475dac6[m Add Flux v2.6.4 component manifests
+[33m78c2da8[m Merge pull request #11 from rajuKollati1/decrease-replica-count
+[33m25b0837[m count make to 3
+[33mc45cf2f[m Merge pull request #10 from rajuKollati1/nginx-replica-three
+[33m98f271b[m now replica count 3
+[33m77153c9[m Merge pull request #9 from rajuKollati1/feature/nginx-update
+[33md2bb89f[m replica count has been updated to 1
+[33m2bc583e[m replica count has been added
+[33mbf914f5[m Merge branch 'main' of https://github.com/rajuKollati1/TestTest
+[33md561ccf[m Merge Testcodes into main, keep main version (deleted calculaterApp/svc.yaml)
+[33mf30d8cf[m Merge pull request #8 from rajuKollati1/Test-brach
+[33m90dfe27[m[33m ([m[1;31morigin/Test-brach[m[33m)[m Create king.md
+[33m7d4ba8d[m mmmmm
+[33m837ab79[m Merge branch 'Testcodes' of https://github.com/rajuKollati1/TestTest into Testcodes
+[33m0257649[m replica count has been extend to 3
+[33m0338402[m Update mimir.md
+[33m60f6040[m mimir md file
+[33m0679e83[m Merge pull request #7 from rajuKollati1/Testcodes
+[33maec4b62[m new md file
+[33m517f062[m Merge pull request #6 from rajuKollati1/revert-5-Testcodes
+[33mda2ed00[m Revert "application attached"
+[33ma276292[m Merge pull request #5 from rajuKollati1/Testcodes
+[33m28963dc[m application attached
+[33mac38c08[m Merge pull request #4 from rajuKollati1/rajuKollati1-patch-3
+[33mffc5b41[m Delete clusters/my-cluster/prometheus/nginxtest.yaml
+[33md2effab[m Merge pull request #3 from rajuKollati1/Test-brach
+[33m3c357b4[m rk
+[33ma43212a[m Update helmrelease.yaml
+[33m7f9e579[m Update helmrelease.yaml
+[33m16acbee[m Update helmrelease.yaml
+[33m3b16fc2[m Update helmrelease.yaml
+[33m287e0b3[m Update prometheus-kustomization.yaml
+[33mf42f367[m Update helmrelease.yaml
+[33m642e2f7[m Update helmrelease.yaml
+[33me273f5c[m Update helmrepository.yaml
+[33m3a37e4a[m Update kustomization.yaml
+[33m893c1d6[m Update prometheus-kustomization.yaml
+[33md8da1a2[m Create prometheus-kustomization.yaml
+[33m6666e6a[m Create kustomization.yaml
+[33m7620aac[m Create helmrelease.yaml
+[33md275f66[m Create helmrepository.yaml
+[33m70190f7[m Update deployment.yaml
+[33md4bbb4a[m Update deployment.yaml
+[33m5bb0b80[m Update deployment.yaml
+[33m7a978f8[m Update service.yaml
+[33m63a692a[m Update deployment.yaml
+[33m5ba3d1c[m Update nginx-app.yaml
+[33m3641d41[m Add Flux sync manifests
+[33m1b87810[m Add Flux v2.4.0 component manifests
+[33m600cc70[m Create kustomization.yaml
+[33m17689f2[m Create kustomization.yaml
+[33m88cf02c[m Create service.yaml
+[33m152b9dd[m Create deployment.yaml
+[33mcf4f399[m Create nginx-app.yaml
+[33m1374e40[m Delete clusters/my-cluster/kustomization.md
+[33m58e011e[m Delete clusters/my-cluster/nginx directory
+[33mc100b6f[m Delete clusters/my-cluster/flux-system directory
+[33mb5568e2[m Delete clusters/my-cluster/flux-system/kustomization.yaml
+[33mb4c06f0[m Update kustomization.yaml
+[33m10daa22[m Rename kustomization.yaml to kustomization.md
+[33mcee0eb8[m Update kustomization.yaml
+[33m04994c0[m Create kustomization.yaml
+[33macef0a2[m Update kustomization.yaml
+[33md796b79[m Update kustomization.yaml
+[33m6575e9e[m Update kustomization.yaml
+[33maf92a91[m Update kustomization.yaml
+[33m05ca695[m Add Flux v2.4.0 component manifests
+[33m26e27c9[m Update kustomization.yaml
+[33mf70b843[m Update gitrepository.yaml
+[33m747a3f1[m Create kustomization.yaml
+[33mbd80acd[m Create gitrepository.yaml
+[33mdb78208[m Update kustomization.yaml
+[33m34d0f37[m Create kustomization.yaml
+[33ma52914b[m Create service.yaml
+[33m33aa189[m Create deployment.yaml
+[33m2203ad2[m Delete clusters/my-cluster/nginx-app.yaml
+[33m9a2dd1e[m Update nginx-app.yaml
+[33mdeb3c6d[m Create nginx-app.yaml
+[33m193db35[m Create fluxinstalations.md
+[33mef84f14[m Add Flux v2.4.0 component manifests
+[33mdfdb218[m Delete clusters/production directory
+[33m643fe0c[m Update deploy-prometheus.yaml
+[33mc825f3c[m Update deploy-prometheus.yaml
+[33mf54f654[m Create prometheus-helmrelease.yaml
+[33m11a3f44[m Create prometheus-helmrepository.yaml
+[33md867e73[m Update deploy-prometheus.yaml
+[33m3acfc07[m Update prometheus-values.yaml
+[33mb2b974b[m Update deploy-prometheus.yaml
+[33m777ebb3[m Update deploy-prometheus.yaml
+[33ma92952f[m Create prometheus-values.yaml
+[33m2001149[m Update smb-pv.yaml
+[33mfa8c36e[m Update smb-pv.yaml
+[33mdabdb21[m Update deploy-smb-storage.yaml
+[33m9d30ea1[m Update deploy-smb-storage.yaml
+[33m67ebc1d[m Update deploy-smb-storage.yaml
+[33m8c365c0[m Update deploy-smb-storage.yaml
+[33m71c2aaf[m Update and rename smb-pvc.yam to smb-pvc.yaml
+[33mec9e93d[m Update deploy-smb-storage.yaml
+[33m19bb0c9[m Update deploy-smb-storage.yaml
+[33m4f473c5[m Create deploy-smb-storage.yaml
+[33m496fc95[m Create pod-with-pvc.yaml
+[33ma7ed37f[m Create smb-pvc.yam
+[33m9e3ffad[m Create smb-pv.yaml
+[33mdd61756[m Create smb-storageclass.yaml
+[33m99ea5b6[m Update deploy-prometheus.yaml
+[33m2f58d9c[m Update deploy-prometheus.yaml
+[33m7eff9ae[m Update deploy-prometheus.yaml
+[33mfd35724[m Update deploy-crd.yaml
+[33m2c260f9[m Update deploy-prometheus.yaml
+[33m07115f1[m Update deploy-prometheus.yaml
+[33m13ef99a[m Create deploy-prometheus.yaml
+[33mf8bbdb2[m Create myapp-crd.yaml
+[33m8d03bad[m Create deploy-crd.yaml
+[33mde181f0[m Delete webcalculator directory
+[33m3c4a1d8[m Delete crd-project/mainifests directory
+[33mdfcdccd[m Delete crd-project/.github/workflows directory
+[33md118a49[m Update deploy-crd.yaml
+[33m450a290[m Delete .github/workflows directory
+[33mb1b4841[m Update deploy-crd.yaml
+[33mae79527[m Rename Grafana.yml to Grafana.md
+[33mdeccfd0[m Delete .github/workflows/deploy-crd.yaml
+[33m8de578b[m Rename helm-deploy.yml to helm-deploy.md
+[33m3e5e7fa[m Rename crd-project/myapp-crd.yaml to crd-project/mainifests/myapp-crd.yaml
+[33me2d10de[m Merge pull request #2 from rajuKollati1/rajuKollati1-patch-2
+[33mbec1255[m Update deploy-crd.yaml
+[33m829b4ba[m Create deploy-crd.yaml
+[33mca603ae[m Create deploy-crd.yaml
+[33m6d63781[m Rename getnodes.yml to getnodes.md
+[33mc09b8ca[m Rename HelmInstall.yml to HelmInstall.md
+[33m182c389[m Create myapp-crd.yaml
+[33me3fd9fb[m Create Grafana.yml
+[33m2c977d5[m Delete .github/workflows/get-nodes2.yml
+[33me0f78c9[m Update and rename grafana.yml to HelmInstall.yml
+[33m7e77e1f[m Create grafana.yml
+[33me43c3ae[m Update get-nodes2.yml
+[33mba88810[m Update get-nodes2.yml
+[33m3e082e3[m Create Dockerfile
+[33m9d9771e[m Create requirements.txt
+[33m3ca3180[m Create app.py
+[33m11ffc8c[m Merge pull request #1 from rajuKollati1/rajuKollati1-patch-1
+[33mc7283f1[m Create helm-deploy.yml
+[33m7140540[m Update get-nodes2.yml
+[33m11e895f[m Create get-nodes2.yml
+[33m4118cdd[m Update getnodes.yml
+[33m1b85d9b[m Update getnodes.yml
+[33m0b14663[m Update getnodes.yml
+[33me7e3301[m Create getnodes.yml
+[33m868552b[m Create test-runner.yml

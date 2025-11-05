@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: school-app
+  namespace: default
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: school-app
+  template:
+    metadata:
+      labels:
+        app: school-app
+    spec:
+      containers:
+      - name: school-web
+        image: nginx:1.21.6
+        ports:
+        - containerPort: 80
+        volumeMounts:
+        - name: school-content
+          mountPath: /usr/share/nginx/html
+      volumes:
+      - name: school-content
+        configMap:
+          name: school-app-content
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: school-app-content
+  namespace: default
+data:
+  index.html: |
+    <html>
+    <head><title>My School App</title></head>
+    <body style="font-family: Arial; text-align: center;">
+      <h1>Welcome to Green Valley School 🏫</h1>
+      <p>Empowering students through learning and technology!</p>
+    </body>
+    </html>

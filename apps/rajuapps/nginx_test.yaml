@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-nginx-app   # ✅ custom deployment name
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: my-nginx-app
+  template:
+    metadata:
+      labels:
+        app: my-nginx-app
+    spec:
+      containers:
+        - name: nginx-container
+          image: nginx:1.21.6   # lightweight, easier for offline labs
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 80

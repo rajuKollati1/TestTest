@@ -1,0 +1,73 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>College Student Data</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        input, button { margin: 5px 0; padding: 5px; }
+        table { border-collapse: collapse; width: 100%; margin-top: 20px; }
+        th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; }
+    </style>
+</head>
+<body>
+
+    <h2>College Student Data Form</h2>
+    <form id="studentForm">
+        <label>Name:</label><br>
+        <input type="text" id="name" required><br>
+        
+        <label>Class:</label><br>
+        <input type="text" id="class" required><br>
+        
+        <label>City:</label><br>
+        <input type="text" id="city" required><br>
+        
+        <label>Phone:</label><br>
+        <input type="text" id="phone" required><br>
+        
+        <button type="submit">Save Student</button>
+    </form>
+
+    <h2>Saved Students</h2>
+    <table id="studentTable">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Class</th>
+                <th>City</th>
+                <th>Phone</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+
+    <script>
+        const studentForm = document.getElementById('studentForm');
+        const studentTable = document.getElementById('studentTable').getElementsByTagName('tbody')[0];
+
+        studentForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const name = document.getElementById('name').value;
+            const cls = document.getElementById('class').value;
+            const city = document.getElementById('city').value;
+            const phone = document.getElementById('phone').value;
+
+            // Create new row
+            const newRow = studentTable.insertRow();
+            newRow.insertCell(0).innerText = name;
+            newRow.insertCell(1).innerText = cls;
+            newRow.insertCell(2).innerText = city;
+            newRow.insertCell(3).innerText = phone;
+
+            // Clear form
+            studentForm.reset();
+        });
+    </script>
+
+</body>
+</html>

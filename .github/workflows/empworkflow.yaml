@@ -1,0 +1,22 @@
+
+name: employ deployemt workflow
+on:
+  workflow_dispatch:   # manual trigger
+  push:
+    branches: ["main"]
+
+jobs:
+  deploy:
+    runs-on: self-hosted   # your local laptop runner
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Deploy StudentApp to Kubernetes
+        run: |
+          kubectl apply -f apps/employeapp/k8s/emp_deployment.yaml
+          
+      - name: Validate my deployemnts 
+        run: |
+          kubectl get deployment student-app 
+

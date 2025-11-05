@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-service
+  namespace: default
+spec:
+  selector:
+    app: nginx           # must match the labels in your Deployment
+  ports:
+    - protocol: TCP
+      port: 80           # service port
+      targetPort: 443    # container port
+  type: ClusterIP      # can also use NodePort or LoadBalancer

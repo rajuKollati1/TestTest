@@ -1,0 +1,30 @@
+name: Deploy Prometheus via FluxCD
+
+on:
+  push:
+    paths:
+      - 'clusters/production/prometheus-helm*'
+    branches:
+      - main
+  workflow_dispatch:  # ✅ This enables the "Run workflow" button
+
+jobs:
+  deploy-prometheus:
+    name: FluxCD Reconcile Prometheus
+    runs-on: [self-hosted, windows]
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Reconcile Git source
+        run: flux reconcile source git flux-system --with-source
+        shell: powershell
+
+      - name: Reconcile HelmRelease
+        run: flux reconcile helmrelease prometheus -n monitoring --with-source
+        shell: powershell
+
+      - name: Confirm Prometheus Release
+        run: flux get helmreleases -n monitoring
+        shell: powershell
