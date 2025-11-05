@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: coconut-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: coconut-api
+  template:
+    metadata:
+      labels:
+        app: coconut-api
+    spec:
+      containers:
+      - name: coconut-api
+        # Replace this image with your registry/image tag after building and pushing
+        image: rajuprudhvi/coconut-api:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 3000
+        envFrom:
+        - secretRef:
+            name: coconut-db-secret
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "50m"
+          limits:
+            memory: "128Mi"
+            cpu: "200m"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: coconut-api
+spec:
+  selector:
+    app: coconut-api
+  ports:
+    - protocol: TCP
+      port: 3000
+      targetPort: 3000
+  type: ClusterIP

@@ -1,0 +1,16 @@
+{
+  "name": "coconut-api",
+  "version": "0.1.0",
+  "description": "Tiny API for coconut-business: signup, signin, orders (Postgres)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "pg": "^8.11.0"
+  }
+}
