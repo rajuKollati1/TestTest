@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: furniture-app
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: furniture-app
@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: furniture-app
-        image: rajuprudhvi/furniture_store:6cd7748199c6fe19b1f618cb3b637ed71590bfe4
+        image: rajuprudhvi/furniture_store:cb9172e4ce7456e72ccf702889a12643069b2c01
         ports:
         - containerPort: 80
 ---
