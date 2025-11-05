@@ -14,7 +14,7 @@ jobs:
     # Environment variables for image naming
     env:
       DOCKER_HUB_USERNAME: ${{ secrets.DOCKER_USERNAME }} # Should be 'rajuprudhvi'
-      IMAGE_NAME: furniture_store
+      IMAGE_NAME: coconut_business 
       DOCKER_TAG: ${{ github.sha }} # Unique tag based on commit hash
 
     steps:
@@ -34,7 +34,7 @@ jobs:
           # The --file flag points to the Dockerfile in the apps/docker directory.
           # The context (.) remains the repository root for the COPY instruction in the Dockerfile.
           docker build `
-            --file apps/furniture/Dockerfile `
+            --file apps/coconut_business/Dockerfile `
             . `
             --tag ${{ env.DOCKER_HUB_USERNAME }}/${{ env.IMAGE_NAME }}:${{ env.DOCKER_TAG }}
           
