@@ -31,14 +31,11 @@ jobs:
 
       - name: 🔨 Build and Tag Docker Image
         run: |
-          # The --file flag points to the Dockerfile in the apps/docker directory.
-          # The context (.) remains the repository root for the COPY instruction in the Dockerfile.
           docker build `
             --file apps/coconut_business/api/Dockerfile `
             . `
             --tag ${{ env.DOCKER_HUB_USERNAME }}/${{ env.IMAGE_NAME }}:${{ env.DOCKER_TAG }}
           
-          # Create a 'latest' tag pointing to the same unique image
           docker tag ${{ env.DOCKER_HUB_USERNAME }}/${{ env.IMAGE_NAME }}:${{ env.DOCKER_TAG }} ${{ env.DOCKER_HUB_USERNAME }}/${{ env.IMAGE_NAME }}:latest
 
       - name: ⬆️ Push Images to Docker Hub
