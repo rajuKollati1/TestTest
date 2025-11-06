@@ -1,11 +1,11 @@
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
-  name: nginx-app-ks
+  name: medicalshop_ks
   namespace: flux-system        # Flux controllers always watch flux-system
 spec:
   interval: 1m0s
-  path: ./apps/nginx          # Path to your app folder in the repo
+  path: ./apps/Medicalshop/k8s       # Path to your app folder in the repo
   prune: true
   sourceRef:
     kind: GitRepository
