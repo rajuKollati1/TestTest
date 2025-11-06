@@ -1,0 +1,93 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sacred medical Supply 🥥</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; background-color: #f0f8ff; padding-top: 20px; }
+        .container { max-width:700px; margin:0 auto; background:#fff; padding:20px; border-radius:10px; box-shadow:0 4px 8px rgba(0,0,0,0.1);} 
+        h1 { color:#2e8b57 }
+        p { color:#333; font-size:1.05em }
+        .medical-emoji { font-size:4em; margin-bottom:10px }
+        .row { display:flex; gap:12px; justify-content:center; margin-top:12px }
+        input, button { padding:8px 12px; font-size:1em }
+        button { cursor:pointer }
+        #orders { margin-top:20px }
+        .small { font-size:0.9em; color:#666 }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="medical-emoji">🥥</div>
+        <h1>Welcome to the Temple medical Supply</h1>
+        <p>Offering the freshest, most sacred medicals for all your religious and ceremonial needs. 🙏</p>
+
+        <h3>Sign up / Sign in</h3>
+        <div class="row">
+            <input id="email" placeholder="Email" />
+            <input id="password" placeholder="Password" type="password" />
+            <button id="signup">Sign Up</button>
+            <button id="signin">Sign In</button>
+        </div>
+        <div id="authMsg" class="small"></div>
+
+        <hr />
+
+        <h3>Order medicals</h3>
+        <div class="row">
+            <input id="qty" type="number" min="1" value="1" />
+            <button id="add">Add medicals</button>
+        </div>
+        <div id="orders">
+            <p>Total medicals ordered: <strong><span id="total">0</span></strong></p>
+        </div>
+        <p class="small">Note: Sign in to attach orders to your account (demo only).</p>
+    </div>
+
+<script>
+// Adjust API base if your API is hosted elsewhere. In-cluster you can proxy /api to the service.
+const API = '/api';
+let currentEmail = null;
+
+async function jsonFetch(path, opts){
+  const res = await fetch(API + path, opts);
+  try{ return await res.json(); }catch(e){ return { error: 'invalid json' } }
+}
+
+async function signup(){
+  const email = document.getElementById('email').value.trim();
+  const password = document.getElementById('password').value;
+  const j = await jsonFetch('/signup', { method:'POST', headers:{'content-type':'application/json'}, body: JSON.stringify({email,password}) });
+  document.getElementById('authMsg').innerText = j.error ? ('Error: '+j.error) : ('Signed up: '+(j.email||''));
+}
+
+async function signin(){
+  const email = document.getElementById('email').value.trim();
+  const password = document.getElementById('password').value;
+  const j = await jsonFetch('/signin', { method:'POST', headers:{'content-type':'application/json'}, body: JSON.stringify({email,password}) });
+  if(j.ok){ currentEmail = email; document.getElementById('authMsg').innerText = 'Signed in as '+email } else { document.getElementById('authMsg').innerText = j.error || 'Sign in failed' }
+}
+
+async function addmedicals(){
+  const qty = parseInt(document.getElementById('qty').value||'1',10);
+  if(qty <= 0) return alert('Enter a positive quantity');
+  const j = await jsonFetch('/order', { method:'POST', headers:{'content-type':'application/json'}, body: JSON.stringify({ email: currentEmail, product: 'medical', quantity: qty }) });
+  if(j.ok){ await refreshTotal(); } else { alert('Order failed: '+(j.error||'unknown')) }
+}
+
+async function refreshTotal(){
+  const j = await jsonFetch('/orders/count/medical');
+  document.getElementById('total').innerText = (j && j.total) ? j.total : 0;
+}
+
+document.getElementById('signup').addEventListener('click', signup);
+document.getElementById('signin').addEventListener('click', signin);
+document.getElementById('add').addEventListener('click', addmedicals);
+
+// load initial total
+refreshTotal();
+</script>
+</body>
+</html>
