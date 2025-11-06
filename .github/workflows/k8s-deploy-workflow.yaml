@@ -16,4 +16,4 @@ jobs:
           kubectl apply -f apps/coconut_business/k8s/c_deploy.yaml
       - name: Validate my deployemnts 
         run: |
-          kubectl get deployment 
+          kubectl get deployment coconut-app
