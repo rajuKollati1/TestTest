@@ -1,4 +1,4 @@
-name: student application for test without docker workflow
+name: deployment workflow for k8s
 on:
   workflow_dispatch:   # manual trigger
  # push:
