@@ -14,7 +14,7 @@ jobs:
     # Environment variables for image naming
     env:
       DOCKER_HUB_USERNAME: ${{ secrets.DOCKER_USERNAME }} # Should be 'rajuprudhvi'
-      IMAGE_NAME: Alisha_image
+      IMAGE_NAME: Alisha
       DOCKER_TAG: ${{ github.sha }} # Unique tag based on commit hash
 
     steps:
