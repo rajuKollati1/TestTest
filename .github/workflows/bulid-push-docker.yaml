@@ -32,7 +32,7 @@ jobs:
       - name: 🔨 Build and Tag Docker Image
         run: |
           docker build `
-            --file apps/Medicalshop/Dockerfile `  
+            --file apps/Medicalshop/Dockerfile `
             . `
             --tag ${{ env.DOCKER_HUB_USERNAME }}/${{ env.IMAGE_NAME }}:${{ env.DOCKER_TAG }}
           
