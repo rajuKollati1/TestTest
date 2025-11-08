@@ -1,4 +1,4 @@
-Command	Description
+sssCommand	Description
 export EDITOR=nano	Sets nano as the default editor for command-line tools.
 export VISUAL=nano	Sets nano as the default editor for visual applications.
 File and Directory Management
