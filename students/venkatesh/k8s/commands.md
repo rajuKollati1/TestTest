@@ -29,3 +29,4 @@ kube==kuberntes,ctl==command line tool
    ## kubectl create deploy (name) --image=(image name)
    name = your img name
    image name == our server name
+e
