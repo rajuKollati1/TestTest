@@ -469,7 +469,3 @@ kubectl describe resourcequota <resourcequota-name>
 ```
 
 > 🔹 Display quota usage and limits.
-
----
-
-✅ **Tip:** Save this Markdown file in your Kubernetes notes or repo for quick reference during deployments or troubleshooting.

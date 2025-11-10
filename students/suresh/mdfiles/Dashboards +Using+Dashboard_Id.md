@@ -129,5 +129,3 @@ You’ve learned how to:
 This is the fastest way to get production-ready visualizations in Grafana without manually building panels.
 
 ---
-
-Would you like me to include a sample `Node Exporter Full` JSON export in this document for quick reference?

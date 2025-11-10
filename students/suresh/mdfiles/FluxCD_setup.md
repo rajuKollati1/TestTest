@@ -260,6 +260,3 @@ kubectl describe kustomization appbox-kustomization -n flux-system
 * Add `ImageRepository`, `ImagePolicy`, and `ImageUpdateAutomation` for automated image updates.
 * Create separate environments under `clusters/` for staging or production.
 
----
-
-✅ **You now have a complete FluxCD setup for TestTest-k8s, with
