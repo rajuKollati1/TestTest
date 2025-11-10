@@ -102,5 +102,7 @@ This is where the **actual workload runs** (Pods and Containers).
 | **Pods**              | 🧫     | Smallest deployable unit (one or more containers) |
 
 
+![alt text](image.png)
+
 
 
