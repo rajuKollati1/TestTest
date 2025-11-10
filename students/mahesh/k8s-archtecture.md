@@ -86,7 +86,7 @@ This is where the **actual workload runs** (Pods and Containers).
 
 ---
 ⚙️ Control Plane Components
-| Component              | Symbol | Description                                    |
+| Component              | Symbol | Description                                      |
 | ---------------------- | ------ | ---------------------------------------------- |
 | **API Server**         | 🌐     | Entry point for all commands; exposes REST API |
 | **etcd**               | 🧩     | Key-value store holding cluster state          |
