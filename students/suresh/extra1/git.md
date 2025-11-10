@@ -15,13 +15,13 @@ git config --global user.email "you@example.com"
 ```bash
 git version
 ```
-> Displays the installed Git version.
+> Displays the installed Git version. 
 
 ---
 
 ## 📁 2. Working with Files
 ```bash
-git add .
+git add . #adding all files
 ```
 > Stages all changes in the current directory for the next commit.
 
