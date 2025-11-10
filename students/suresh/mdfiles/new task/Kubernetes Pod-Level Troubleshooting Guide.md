@@ -12,7 +12,7 @@ This Markdown document provides **step-by-step troubleshooting methods** for res
 4. Common Pod-Level Issues and Fixes
 5. Logs and Events Analysis
 6. Live Debugging a Pod
-7. Resource and Node Issues
+7.  Resource and Node Issues
 8. Image and Container Problems
 9. Restart and Recovery Steps
 10. Interview Questions
