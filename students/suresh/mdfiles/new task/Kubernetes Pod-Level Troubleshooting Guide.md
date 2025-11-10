@@ -15,7 +15,7 @@ This Markdown document provides **step-by-step troubleshooting methods** for res
 7.  Resource and Node Issues
 8. Image and Container Problems
 9. Restart and Recovery Steps
-10. Interview Questions
+10. Interview Questions.
 
 ---
 
