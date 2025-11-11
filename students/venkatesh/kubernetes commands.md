@@ -181,3 +181,4 @@ kubectl apply -f deployment.yaml
 # 6. Check rollout and logs
 kubectl rollout status deployment/nginx
 kubectl logs -f <nginx-pod-name>
+ ![alt text](image.png)
