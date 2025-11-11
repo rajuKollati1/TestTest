@@ -29,4 +29,6 @@ kube==kuberntes,ctl==command line tool
    ## kubectl create deploy (name) --image=(image name)
    name = your img name
    image name == our server name
-   fcsz
+   C:\Users\Gopi Mahesh Ande\git raju\TestTest\students\venkatesh\ChatGPT Image Nov 10, 2025, 03_03_55 PM.png
+
+ ![alt text](image.png)
