@@ -118,4 +118,4 @@ Docker Hub
 
 Docker Architecture Explained
 
-students/mahesh/image-1.png
+![alt text](image-1.png)
