@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ecommerce-app
+spec:
+  replicas: 1 # Reduced replicas from 3 to 2
+  selector:
+    matchLabels:
+      app: ecommerce  
+  template:
+    metadata:
+      labels:
+        app: ecommerce        
+    spec:
+      containers:   
+      - name: ecommerce-container
+        image: nginx:latest
+        ports:
+        - containerPort: 80
+        resources:
+          requests:
+            memory: "120Mi"
+            cpu: "80m"
+          limits:
+            memory: "156Mi"
+            cpu: "100m"

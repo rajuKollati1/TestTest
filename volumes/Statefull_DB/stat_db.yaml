@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: postgres-stateful
+spec:
+  serviceName: "postgres"
+  replicas: 2 # StatefulSets are often replicated for HA
+  selector:
+    matchLabels:
+      app: postgres-stateful
+  template:
+    metadata:
+      labels:
+        app: postgres-stateful
+    spec:
+      containers:
+        - name: postgres
+          image: postgres:14.5
+          env:
+            # NOTE: In a real-world scenario, you should use a Secret for the password!
+            - name: POSTGRES_PASSWORD
+              value: "mysecretpassword"
+          ports:
+            - containerPort: 5432
+              name: postgres
+          volumeMounts:
+            - name: data
+              # The default data directory for the postgres image
+              mountPath: /var/lib/postgresql/data
+  # This template will automatically create a new PersistentVolumeClaim for each Pod.
+  volumeClaimTemplates:
+    - metadata:
+        name: data # This name must match the volumeMount's name above
+      spec:
+        accessModes: [ "ReadWriteOnce" ]
+        # This must match the storageClassName of your PersistentVolumes
+        storageClassName: "manual"
+        resources:
+          requests:
+            storage: 1Gi
