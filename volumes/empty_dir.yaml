@@ -5,11 +5,4 @@ metadata:
 spec:
   containers:
     - name: busybox
-      image: busybox
-      command: [ "sh", "-c", "echo Hello from /data; sleep 3600" ]
-      volumeMounts:
-        - name: demo-volume
-          mountPath: /data
-  volumes:
-    - name: demo-volume
-      emptyDir: {}
+       image: busybox:latest

@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: student-app-green # A new name for the green deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: student-app
+      version: green # This targets the green version
+  template:
+    metadata:
+      labels:
+        app: student-app
+        version: green # This pod is part of the green version
+    spec:
+      containers:
+      - name: student-app
+        image: rajuprudhvi/student-web-app:v2 # IMPORTANT: Use the new image version
+        ports:
+        - containerPort: 80
