@@ -9,7 +9,7 @@ on:
 jobs:
   build_and_push:
     # IMPORTANT: Use the labels for your self-hosted Windows runner
-    runs-on: [self-hosted, windows-latest] 
+    runs-on: [self-hosted, windows] 
     
     # Environment variables for image naming
     env:
