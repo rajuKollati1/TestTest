@@ -7,14 +7,16 @@ spec:
   selector:
     matchLabels:
       app: student-app
+      version: blue    # This targets the blue version
   template:
     metadata:
       labels:
         app: student-app
+        version: blue    # This pod is part of the blue version
     spec:
       containers:
       - name: student-app
-        image: rajuprudhvi/student-app:1.0
+        image: rajuprudhvi/student-web-app:latest
         ports:
         - containerPort: 80
 ---
@@ -25,7 +27,8 @@ metadata:
 spec:
   type: NodePort
   selector:
-    app: student-app
+    app: student-app # Selects the app
+    version: blue    # Initially points to the LIVE blue version
   ports:
     - protocol: TCP
       port: 80

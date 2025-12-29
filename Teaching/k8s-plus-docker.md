@@ -21,6 +21,7 @@ flowchart TB
     subgraph Node1[Worker Node 1]
         Kubelet1["🧩 Kubelet"]
         KProxy1["🔀 Kube-proxy"]
+        CR1["📦 Containerd Runtime"]
         Pod1["📦 Pod 1 (Containers)"]
         Pod2["📦 Pod 2 (Containers)"]
     end
@@ -29,6 +30,7 @@ flowchart TB
     subgraph Node2[Worker Node 2]
         Kubelet2["🧩 Kubelet"]
         KProxy2["🔀 Kube-proxy"]
+        CR2["📦 Containerd Runtime"]
         Pod3["📦 Pod 3 (Containers)"]
         Pod4["📦 Pod 4 (Containers)"]
     end
@@ -43,8 +45,8 @@ flowchart TB
 
     %% --- Apply Styles ---
     class APIServer,Scheduler,Controller,ETCD cpStyle
-    class Kubelet1,KProxy1,Pod1,Pod2 workerStyle
-    class Kubelet2,KProxy2,Pod3,Pod4 workerStyle
+    class Kubelet1,KProxy1,CR1,Pod1,Pod2 workerStyle
+    class Kubelet2,KProxy2,CR2,Pod3,Pod4 workerStyle
     class Kubectl,User clientStyle
 
     %% --- Connections ---
@@ -54,10 +56,12 @@ flowchart TB
     APIServer --> Scheduler
     APIServer --> Controller
     APIServer --> ETCD
-    APIServer --> Kubelet1
-    Kubelet1 --> Pod1
-    Kubelet1 --> Pod2
-    APIServer --> Kubelet2
-    Kubelet2 --> Pod3
-    Kubelet2 --> Pod4
+    APIServer -- talks to --> Kubelet1
+    Kubelet1 -- manages --> CR1
+    CR1 -- runs --> Pod1
+    CR1 -- runs --> Pod2
+    APIServer -- talks to --> Kubelet2
+    Kubelet2 -- manages --> CR2
+    CR2 -- runs --> Pod3
+    CR2 -- runs --> Pod4
 ```

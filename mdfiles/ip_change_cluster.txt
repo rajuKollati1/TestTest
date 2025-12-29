@@ -1,0 +1,73 @@
+🚀 Kubernetes Control Plane IP Address Change Guide
+This guide details the necessary steps to safely change the IP address of a Kubernetes control plane node (master) managed by kubeadm without reinstalling the cluster.
+
+Original IP: $192.16.0.35 (and/or $192.168.0.30) New IP: $192.168.1.30
+
+1. Prerequisites and Network Update
+Change the Host IP: Update the network configuration (using ip a, Network Manager, etc.) of your Linux VM to the new IP address, $192.168.1.30.
+
+Verify New IP: Confirm the OS is running on the new IP.
+
+Bash
+
+ip a | grep 192.168.1.30
+2. Configuration File Updates
+The IP address must be updated across all Kubernetes component configuration files.
+
+Bash
+
+# Set variables for clarity
+OLD_IP_1="192.16.0.35"
+OLD_IP_2="192.168.0.30"
+NEW_IP="192.168.1.30"
+
+# Update all config files and manifests to reference the new IP
+sudo sed -i "s/$OLD_IP_1/$NEW_IP/g" /etc/kubernetes/*.conf
+sudo sed -i "s/$OLD_IP_2/$NEW_IP/g" /etc/kubernetes/*.conf
+sudo sed -i "s/$OLD_IP_1/$NEW_IP/g" /etc/kubernetes/manifests/*.yaml
+sudo sed -i "s/$OLD_IP_2/$NEW_IP/g" /etc/kubernetes/manifests/*.yaml
+3. Certificate and Kubeconfig Regeneration
+The API Server's TLS certificate must be regenerated to include the new IP in its Subject Alternative Names (SANs), otherwise clients will receive a TLS error.
+
+Remove Old Certificates: Delete the existing API server certificate and key (skip if already missing).
+
+Bash
+
+sudo rm /etc/kubernetes/pki/apiserver.{crt,key}
+Regenerate API Server Certificate: This creates new certificates valid for the new IP.
+
+Bash
+
+sudo kubeadm init phase certs apiserver \
+  --apiserver-advertise-address=$NEW_IP \
+  --control-plane-endpoint=$NEW_IP \
+  --apiserver-cert-extra-sans=$NEW_IP
+Regenerate Kubeconfigs: This updates files like admin.conf, controller-manager.conf, and scheduler.conf to use the new IP for API server access.
+
+Bash
+
+sudo kubeadm init phase kubeconfig all --apiserver-advertise-address $NEW_IP
+4. Finalization and Verification
+After updating the configuration and certificates, the Kubelet must restart the static pods to load the changes.
+
+Restart Kubelet:
+
+Bash
+
+sudo systemctl daemon-reload
+sudo systemctl restart kubelet
+Wait 60 seconds for the control plane to stabilize.
+
+Update Local kubectl Configuration: Ensure the user's kubectl config points to the new API server IP.
+
+Bash
+
+sudo cp -f /etc/kubernetes/admin.conf $HOME/.kube/config
+sudo chown $(id -u):$(id -g) $HOME/.kube/config
+Verify Cluster Health:
+
+Bash
+
+kubectl get nodes
+kubectl get pods -A
+The node should show Ready, and all pods in kube-system should be Running.

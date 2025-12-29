@@ -30,12 +30,16 @@ if [ "$USAGE" -ge "$THRESHOLD" ]; then
 
     sshpass -p "$USERPASS" ssh -tt -o StrictHostKeyChecking=no "$USER@$NODE" << EOF
         su - << ROOTCMDS
-$ROOTPASS
-
-# Verify ctr
-if ! ctr version &>/dev/null; then
-    echo "❌ Error: ContainerD (ctr) command not found. Aborting."
-    exit 1
+            $ROOTPASS
+            if ! ctr version &>/dev/null; then
+                echo "❌ Error: ContainerD (ctr) command not found. Aborting."
+                exit 1
+            fi
+            echo "Pruning unused images..."
+            ctr -n k8s.io images prune --all
+            echo "✅ Image pruning complete."
+ROOTCMDS
+EOF
+else
+    echo "✅ Disk usage is below threshold. No action needed."
 fi
-
-e

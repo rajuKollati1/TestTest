@@ -29,8 +29,8 @@ flowchart TB
     subgraph Node2[Worker Node 2]
         Kubelet2["🧩 Kubelet"]
         KProxy2["🔀 Kube-proxy"]
-        Pod3["📦 Pod 3 (Containers)"]
-        Pod4["📦 Pod 4 (Containers)"]
+        Pod3["📦 Pod 3 (Containerd)"]
+        Pod4["📦 Pod 4 (Containerd)"]
     end
 
     %% --- External Clients ---
@@ -38,7 +38,7 @@ flowchart TB
     User["👨‍💻 User Interface (Dashboard)"]
 
     %% --- Explanatory Pointer ---
-    Pointer["🖱️ Your Pointer"]
+    Pointer["🖱️ K9s tool "]
     style Pointer fill:#fff,stroke:#d9534f,stroke-width:2px,stroke-dasharray: 5 5
 
     %% --- Apply Styles ---
