@@ -112,7 +112,7 @@ metadata:
   namespace: flux-system
 spec:
   interval: 1m0s
-  path: ./appbox
+  path: ./apps/employeapp
   prune: true
   sourceRef:
     kind: GitRepository
