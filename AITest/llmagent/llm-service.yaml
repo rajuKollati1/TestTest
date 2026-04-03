@@ -9,3 +9,5 @@ spec:
     - port: 11434c
       targetPort: 11434
   type: NodePort
+
+
