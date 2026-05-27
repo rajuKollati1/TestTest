@@ -1,0 +1,21 @@
+---
+- name: List Kubernetes System Directories
+  hosts: lab_vms
+  become: yes
+  gather_facts: no
+  tasks:
+    - name: Get directory listing for /etc/kubernetes
+      ansible.builtin.command: ls -F /etc/kubernetes
+      register: etc_k8s
+
+    - name: Get directory listing for /var/lib/kubelet
+      ansible.builtin.command: ls -F /var/lib/kubelet
+      register: var_kubelet
+
+    - name: Display Kubernetes Directory structure
+      ansible.builtin.debug:
+        msg: 
+          - "--- /etc/kubernetes ---"
+          - "{{ etc_k8s.stdout_lines }}"
+          - "--- /var/lib/kubelet ---"
+          - "{{ var_kubelet.stdout_lines }}"

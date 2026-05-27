@@ -1,0 +1,21 @@
+---
+- name: Check Kubelet and Containerd Status
+  hosts: lab_vms
+  become: yes
+  gather_facts: no
+  tasks:
+    - name: Check status of containerd
+      ansible.builtin.systemd:
+        name: containerd
+      register: containerd_status
+
+    - name: Check status of kubelet
+      ansible.builtin.systemd:
+        name: kubelet
+      register: kubelet_status
+
+    - name: Display Service Status
+      ansible.builtin.debug:
+        msg:
+          - "Containerd State: {{ containerd_status.status.ActiveState }}"
+          - "Kubelet State: {{ kubelet_status.status.ActiveState }}"

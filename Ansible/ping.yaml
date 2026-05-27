@@ -1,0 +1,7 @@
+---
+- name: Test SSH Connection
+  hosts: lab_vms
+  gather_facts: no
+  tasks:
+    - name: Sending a ping to the VMs
+      ansible.builtin.ping:
