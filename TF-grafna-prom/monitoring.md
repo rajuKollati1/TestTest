@@ -54,4 +54,4 @@ Access at: `http://localhost:9090`
 
 ## 4. Troubleshooting
 - **PVC Pending:** The PVCs are configured with `wait_until_bound = false`. They will transition to `Bound` once the pods are successfully scheduled to a node.
-- **Image Pull Errors:** Kube-state-metrics is disabled to avoid registry connection issues and save resources.
+- **Image Pull Errors:** Kube-state-metrics is disabled to avoid registry connection issues and save resources.git 
