@@ -1,3 +1,9 @@
 curl -X POST http://192.168.1.10:31433/api/pull -d '{
   "name": "llama2"
 }'
+
+curl http://192.168.1.10:31433/api/generate -d '{
+  "model": "tinyllama",
+  "prompt": "Hello",
+  "stream": false
+}'
