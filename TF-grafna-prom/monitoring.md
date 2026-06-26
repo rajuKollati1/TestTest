@@ -24,6 +24,28 @@ kubectl port-forward deployment/grafana -n monitoring 3000:3000
 ```
 Access at: `http://localhost:3000`
 
+#### Chartvalues in grafana
+helm pull grafana/grafana --version 10.5.15 --untar 
+
+#### values values in grafna
+helm show values grafana/grafana --version 10.5.15 > original-values.yaml
+
+### Add custom values to granfa
+
+helm upgrade grafana grafana/grafana -n monitoring -f custom-values.yaml
+
+securityContext:
+  runAsUser: 472
+  runAsGroup: 472
+  fsGroup: 472
+
+#### granfa username and pss
+admin
+bash
+kubectl get secret --namespace monitoring grafana -o jsonpath="{.data.admin-password}" | base64 --decode ; echo
+
+
+
 ### Prometheus
 ```bash
 kubectl port-forward deployment/prometheus-server -n monitoring 9090:9090
