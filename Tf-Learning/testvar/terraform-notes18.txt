@@ -1,0 +1,3 @@
+Content     : Learning Terraform Variables
+Environment : test
+Owner       : kollati king
