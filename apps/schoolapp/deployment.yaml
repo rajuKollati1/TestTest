@@ -4,7 +4,7 @@ metadata:
   name: school-app
   namespace: default
 spec:
-  replicas: 4
+  replicas: 1
   selector:
     matchLabels:
       app: school-app
