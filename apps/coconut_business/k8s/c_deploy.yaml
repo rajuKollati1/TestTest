@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: coconut-app
-        image: rajuprudhvi/coconut_business:6d7998ce8c8ba57638c62c1fef341fc3d5366279
+        image: rajuprudhvi/coconut-front:latest
         ports:
         - containerPort: 80
         envFrom:

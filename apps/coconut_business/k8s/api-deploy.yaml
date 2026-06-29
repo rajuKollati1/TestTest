@@ -15,7 +15,7 @@ spec:
       containers:
       - name: coconut-api
         # Replace this image with your registry/image tag after building and pushing
-        image: rajuprudhvi/coconut-api:latest
+        image: rajuprudhvi/coconut-business:latest
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 3000

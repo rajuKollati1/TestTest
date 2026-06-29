@@ -14,7 +14,8 @@ spec:
     spec:
       containers:
       - name: furniture-app
-        image: rajuprudhvi/furniture_store:cb9172e4ce7456e72ccf702889a12643069b2c01
+        image: rajuprudhvi/myapp:latest
+        imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 80
 ---
