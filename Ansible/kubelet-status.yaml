@@ -1,0 +1,13 @@
+---
+- name: Check kubelet status
+  hosts: lab_vms
+  become: yes
+  tasks:
+    - name: Run systemctl status kubelet
+      command: systemctl status kubelet
+      register: kubelet_status
+      ignore_errors: yes
+
+    - name: Show kubelet status output
+      debug:
+        var: kubelet_status.stdout_lines
