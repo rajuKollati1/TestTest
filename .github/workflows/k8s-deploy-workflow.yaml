@@ -1,4 +1,4 @@
-name: deployment workflow for k8s
+name: deployment workflow july
 on:
   workflow_dispatch:   # manual trigger
  # push:
