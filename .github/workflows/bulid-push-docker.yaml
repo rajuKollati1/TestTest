@@ -1,4 +1,4 @@
-dname: Docker Build and Push to dock rk
+name: Docker Build and Push to dock rk
 
 on:
   #push:
