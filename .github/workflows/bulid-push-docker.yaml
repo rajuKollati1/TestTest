@@ -1,15 +1,21 @@
 name: Docker Build and Push to Docker Hub
+
 on:
-  workflow_dispatch:
+  workflow_dispatch: # Manual trigger from GitHub UI
+  # Uncomment below if you want auto-builds on push to main
+  # push:
+  #   branches:
+  #     - main
 
 jobs:
   build_and_push:
+    # Runs on your self-hosted Windows runner
     runs-on: [self-hosted, windows]
 
     env:
-      DOCKER_HUB_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+      DOCKER_HUB_USERNAME: ${{ secrets.DOCKER_USERNAME }} # e.g. 'rajuprudhvi'
       IMAGE_NAME: Raju-app
-      DOCKER_TAG: ${{ github.sha }}
+      DOCKER_TAG: ${{ github.sha }} # Unique tag per commit
 
     steps:
       - name: ⬇️ Checkout Repository
