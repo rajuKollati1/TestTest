@@ -1,0 +1,45 @@
+name: K8s Info Check
+
+on:
+  workflow_dispatch:
+    inputs:
+      resource:
+        description: "Resource type to check (pods, nodes, services, pvc)"
+        required: true
+        default: "pods"
+      namespace:
+        description: "Namespace (optional, default=default)"
+        required: false
+        default: "default"
+      name:
+        description: "Specific resource name (optional)"
+        required: false
+
+jobs:
+  k8s-info:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v5
+
+      - name: Setup kubectl
+        uses: azure/setup-kubectl@v4
+        with:
+          version: 'latest'
+
+      - name: Configure K8s access
+        run: |
+          # Example: use a secret kubeconfig
+          echo "${{ secrets.KUBECONFIG_DATA }}" > $HOME/.kube/config
+
+      - name: Run kubectl command
+        run: |
+          RESOURCE="${{ github.event.inputs.resource }}"
+          NAMESPACE="${{ github.event.inputs.namespace }}"
+          NAME="${{ github.event.inputs.name }}"
+
+          if [ -z "$NAME" ]; then
+            kubectl get "$RESOURCE" -n "$NAMESPACE"
+          else
+            kubectl get "$RESOURCE" "$NAME" -n "$NAMESPACE" -o yaml
+          fi
