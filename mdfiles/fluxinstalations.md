@@ -1,7 +1,7 @@
 
 # 🔁 Complete FluxCD Setup Guide (Local & Cluster) – By Raju Kollati
 
-## 🧱 Prerequisites
+## 🧱 Prerequisites 
 
 - GitHub account (`rajuKollati1`)
 - Kubernetes cluster running (`mycluster-001`)
