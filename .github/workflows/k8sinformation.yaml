@@ -4,11 +4,11 @@ on:
   workflow_dispatch:
     inputs:
       resource:
-        description: "Resource type to check (pods, nodes, services, pvc)"
+        description: "Resource type (pods, nodes, services, pvc)"
         required: true
         default: "pods"
       namespace:
-        description: "Namespace (optional, default=default)"
+        description: "Namespace (default=default)"
         required: false
         default: "default"
       name:
@@ -17,20 +17,22 @@ on:
 
 jobs:
   k8s-info:
-    runs-on: self-hosted
+    runs-on: [self-hosted, windows]
+
     steps:
-      - name: Checkout repo
+      - name: Checkout repository
         uses: actions/checkout@v5
 
       - name: Run kubectl command
         shell: pwsh
         run: |
-          RESOURCE="${{ github.event.inputs.resource }}"
-          NAMESPACE="${{ github.event.inputs.namespace }}"
-          NAME="${{ github.event.inputs.name }}"
+          $RESOURCE = "${{ github.event.inputs.resource }}"
+          $NAMESPACE = "${{ github.event.inputs.namespace }}"
+          $NAME = "${{ github.event.inputs.name }}"
 
-          if [ -z "$NAME" ]; then
-            kubectl get "$RESOURCE" -n "$NAMESPACE"
-          else
-            kubectl get "$RESOURCE" "$NAME" -n "$NAMESPACE" -o yaml
-          fi
+          if ([string]::IsNullOrEmpty($NAME)) {
+            kubectl get $RESOURCE -n $NAMESPACE
+          }
+          else {
+            kubectl get $RESOURCE $NAME -n $NAMESPACE -o yaml
+          }
