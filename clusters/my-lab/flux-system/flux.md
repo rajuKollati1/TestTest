@@ -1,4 +1,4 @@
-$env:GITHUB_TOKEN=""
+$env:GITHUB_TOKEN="settings, devlopersettings, personal accesstoken(personal)"
 $env:GITHUB_USER="rajukollati1"
 
 
