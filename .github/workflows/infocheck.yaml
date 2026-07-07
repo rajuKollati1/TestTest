@@ -1,0 +1,15 @@
+name: k8s-information checking 
+
+on: 
+  workflow-dispatch:
+
+jobs: 
+  k8s-information:
+    runs-on: self-hosted
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+
+      - name: Run kubectl command
+        run: | 
+            kubectl get nodes -o wide
