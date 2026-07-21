@@ -12,4 +12,4 @@ jobs:
 
       - name: Run kubectl command
         run: | 
-            kubectl get nodes -o wide
+            kubectl get nodes -o

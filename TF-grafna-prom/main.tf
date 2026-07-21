@@ -71,7 +71,7 @@ resource "helm_release" "prometheus" {
   depends_on = [
     kubernetes_persistent_volume_claim.prometheus_pvc
   ]
-  
+
   wait = false # Don't wait for pods to be "Ready" so you can debug if they stay Pending
 
   set {
@@ -84,13 +84,13 @@ resource "helm_release" "prometheus" {
   }
   set {
     name  = "kube-state-metrics.enabled"
-    value = "false" # Disabled to avoid image pull errors and save resources
+    value = "true" # Disabled to avoid image pull errors and save resources
   }
   set {
     name  = "server.persistentVolume.existingClaim"
     value = kubernetes_persistent_volume_claim.prometheus_pvc.metadata[0].name
   }
-  
+
   # Resource constraints
   set {
     name  = "server.resources.requests.memory"
