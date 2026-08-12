@@ -1,0 +1,38 @@
+name: K8s Info Check
+
+on:
+  workflow_dispatch:
+    inputs:
+      resource:
+        description: "Resource type (pods, nodes, services, pvc)"
+        required: true
+        default: "pods"
+      namespace:
+        description: "Namespace (default=default)"
+        required: false
+        default: "default"
+      name:
+        description: "Specific resource name (optional)"
+        required: false
+
+jobs:
+  k8s-info:
+    runs-on: [self-hosted, windows]
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+
+      - name: Run kubectl command
+        shell: powershell
+        run: |
+          $RESOURCE = "${{ github.event.inputs.resource }}"
+          $NAMESPACE = "${{ github.event.inputs.namespace }}"
+          $NAME = "${{ github.event.inputs.name }}"
+
+          if ([string]::IsNullOrEmpty($NAME)) {
+            kubectl get $RESOURCE -n $NAMESPACE
+          }
+          else {
+            kubectl get $RESOURCE $NAME -n $NAMESPACE -o yaml
+          }

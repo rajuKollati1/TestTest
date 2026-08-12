@@ -19,7 +19,7 @@ if [ "$USAGE" -ge "$THRESHOLD" ]; then
         ctr images list -q > /tmp/all_images.txt
 
         echo "Listing used images from running containers..."
-        ctr containers list -q > /tmp/used_images.txt
+    5    ctr containers list -q > /tmp/used_images.txt
 
         echo "Identifying unused images..."
         grep -vxFf /tmp/used_images.txt /tmp/all_images.txt > /tmp/unused_images.txt || true
