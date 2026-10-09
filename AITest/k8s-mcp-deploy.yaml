@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kubernetes-mcp
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kubernetes-mcp
+  template:
+    metadata:
+      labels:
+        app: kubernetes-mcp
+    spec:
+      serviceAccountName: ai-k8s-agent
+
+      containers:
+      - name: kubernetes-mcp
+        image: quay.io/containers/kubernetes_mcp_server:latest
+        ports:
+        - containerPort: 8080

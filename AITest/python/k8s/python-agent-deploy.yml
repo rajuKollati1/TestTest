@@ -1,0 +1,56 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: python-agent
+  namespace: default
+spec:
+  replicas: 1
+
+  selector:
+    matchLabels:
+      app: python-agent
+
+  template:
+    metadata:
+      labels:
+        app: python-agent
+
+    spec:
+      serviceAccountName: ai-k8s-agent
+
+      containers:
+      - name: python-agent
+
+        image: rajuprudhvi/python-agent:1.0
+
+        imagePullPolicy: Always
+
+        ports:
+        - containerPort: 8000
+
+        resources:
+          requests:
+            cpu: 100m
+            memory: 256Mi
+
+          limits:
+            cpu: 500m
+            memory: 512Mi
+
+--- 
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: python-agent
+  namespace: default
+
+spec:
+  selector:
+    app: python-agent
+
+  ports:
+  - port: 8000
+    targetPort: 8000
+
+  type: ClusterIP
